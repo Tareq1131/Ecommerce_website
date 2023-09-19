@@ -10,13 +10,19 @@ export default function Shop() {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
-
+  
+  const handleAddToCart=(product)=>{
+    console.log(product);
+ }
   return (
     <div className="shop-container">
       <div className="products-container">
         {/* show all product here /call product component/sent all product arrey element*/}
         {products.map((product) => (
-          <Product key={product.id} product={product} />
+          <Product key={product.id} 
+          product={product}
+          handleAddToCart={handleAddToCart}
+          />
         ))}
       </div>
 

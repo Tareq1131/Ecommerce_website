@@ -1,9 +1,12 @@
 import './Product.css'
 
- const Product= ({product})=>{
-    console.log('get all product ',product);
-   const {img, name, seller,quantity,ratings,price} = product;
-  return (
+ const Product= (props)=>{
+    // console.log('get all product ',product);
+   const {img, name, seller,quantity,ratings,price} = props.product;
+
+  const handleAddToCart = props.handleAddToCart;
+  
+   return (
     <div className='product'>
       {/* all product showing templet */}
         <img src={img} alt="image" />
@@ -13,7 +16,7 @@ import './Product.css'
         <p>Manufacturer :{seller}</p>
         <p>Rating :{ratings}*</p>
        </div>
-       <button className='btn-cart'>Add to cart</button>
+       <button onClick={()=>handleAddToCart(props.product)} className='btn-cart'>Add to cart</button>
     </div>
   )
 }
