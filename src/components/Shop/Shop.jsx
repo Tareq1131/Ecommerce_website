@@ -3,7 +3,11 @@ import "./Shop.css";
 import Product from "../Product/Product";
 
 export default function Shop() {
+   // const[date, setDate]=useState([11]);
+
+
   const [products, setProducts] = useState([]);
+  const [cart, setCart]=useState([])
 
   useEffect(() => {
     fetch("products.json")
@@ -12,7 +16,11 @@ export default function Shop() {
   }, []);
   
   const handleAddToCart=(product)=>{
-    console.log(product);
+    //setDate(data =>{[...at,2]})
+    //console.log(product);
+    //add new cart for odd & new valo 
+    const newCart = [...cart, product];
+    setCart(newCart);
  }
   return (
     <div className="shop-container">
@@ -28,6 +36,7 @@ export default function Shop() {
 
       <div className="cart-container">
         <h4>order summery</h4>
+        <p>Selected items:{cart.length}</p>
       </div>
     </div>
   );
