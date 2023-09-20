@@ -1,6 +1,8 @@
 .cart{
     background-color: rgb(253, 195, 137);
     padding: 25px;
+    position: sticky;
+    top: 0;
 }
 .cart p{
     font-size: 17px;
