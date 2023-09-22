@@ -17,9 +17,26 @@ export default function Shop() {
 //for storage
   useEffect(()=>{
     const storedCart = getShoppingCart();
-    
+    const savedCart= [];
+    //setp 1 get id of the addProduct
+    for(const id in storedCart){
+        //setp 2 get the product by using id...
+        const adedProduct = products.find(product => 
+            product.id=== id);
+           // console.log(saveproduct);
+           //step 3 get quantity of the product
+           if(adedProduct){
+            //setp 3 add quantity
+            const quantity = storedCart[id];
+            adedProduct.quantity = quantity;
+            //setp 4 add the added product to the save cart
+            savedCart.push(adedProduct);
+           }    
+    }
+    //step 5: set the cart
+    setCart(savedCart);
 
-  },[])
+  },[products])
 
 
   const handleAddToCart = (product) => {
