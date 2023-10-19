@@ -5,7 +5,7 @@ import Cart from "../Cart/Cart";
 import ReviewItem from "../ReviewItem/ReviewItem";
 import './Order.css'
 import { useState } from "react";
-import { removeFromDb } from "../../utilities/fakedb";
+import { deleteShoppingCart, removeFromDb } from "../../utilities/fakedb";
 
 
 
@@ -17,6 +17,11 @@ const Orders = () => {
         const remaining = cart.filter(product => product.id !== id);
         setCart(remaining);
          removeFromDb(id);
+    }
+
+    const handleClearCart=()=>{
+        setCart([])
+        deleteShoppingCart();
     }
 
     //console.log('order',savedCart)
@@ -33,7 +38,9 @@ const Orders = () => {
             </div>
 
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart 
+                handleClearCart={handleClearCart}
+                cart={cart}></Cart>
             </div>
            
          </div>
