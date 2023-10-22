@@ -1,0 +1,19 @@
+.cart{
+    background-color: rgb(253, 195, 137);
+    padding: 25px;
+    position: sticky;
+    top: 0;
+}
+.cart p{
+    font-size: 17px;
+}
+.btn-clear-cart{
+    width: 90%;
+    margin: 10px auto;
+    background: orange;
+    color: rgb(23, 22, 22);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
